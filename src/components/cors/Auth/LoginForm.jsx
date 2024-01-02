@@ -1,57 +1,87 @@
-import React from 'react'
-import loginimage from "../assets/Images/login.webp";
-import Highlighttext from "../components/cors/Homepage/HighlightText";
-const login = () => {
+import { useState } from "react";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+
+function LoginForm() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const [showPassword, setShowPassword] = useState(false);
+  const { email, password } = formData;
+
+  const handleOnChange = (e) => {};
+
+  const handleOnSubmit = (e) => {};
+
   return (
-    <div>
-       <div className="mx-auto flex flex-row w-11/12 max-w-maxContent  text-white mt-[170px]">
-      {/* first for inputs */}
-      <div className="flex flex-col w-[508px] px-[32px] py-[32px]">
-        <div className="w-[370px]  ">
-          <h1 className="text-3xl font-bold mb-1  ">
-           Welcome Back 
-          </h1>
-          <p className="text-richblack-100 italic">
-            Build skills for today, tomorrow, and beyond.{" "}
+    <form
+      onSubmit={handleOnSubmit}
+      className="mt-6 flex w-full flex-col gap-y-4"
+    >
+      <label className="w-full">
+        <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+          Email Address <sup className="text-pink-200">*</sup>
+        </p>
+        <input
+          required
+          type="text"
+          name="email"
+          value={email}
+          onChange={handleOnChange}
+          placeholder="Enter email address"
+          style={{
+            boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
+          }}
+          className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5"
+        />
+      </label>
+
+      <label className="relative ">
+        <p className="mb-1 text-[0.875rem]  leading-[1.375rem] text-richblack-5">
+          Password <sup className="text-pink-200">*</sup>
+        </p>
+        <input
+          required
+          type={showPassword ? "text" : "password"}
+          name="password"
+          value={password}
+          onChange={handleOnChange}
+          placeholder="Enter Password"
+          style={{
+            boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
+          }}
+          className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] pr-12 text-richblack-5"
+        />
+        <span
+          onClick={() => setShowPassword((prev) => !prev)}
+          className="absolute right-3 top-[38px] z-[10] cursor-pointer"
+        >
+          {showPassword ? (
+            <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
+          ) : (
+            <AiOutlineEye fontSize={24} fill="#AFB2BF" />
+          )}
+        </span>
+        <Link to="/forgot-password">
+          <p className="mt-1 ml-auto max-w-max text-xs text-blue-100">
+            Forgot Password
           </p>
-          <Highlighttext  text={"Education to future-proof your career."} />
-        </div>
-
-        {/* input boxes  */}
-        <div className="w-[370px] flex flex-col ">
-         
-          
-           <div className='my-[30px] '>
-           <label className="text-richblack-5 font-inter mb-1  ml-1 text-[13px]">
-              Email Address
-            </label>
-            <input
-              type="email"
-              className="bg-richblack-800 outline-0 h-[38px] w-full px-4 py-6 border-b-[0.1rem] border-white   gap-[12px] rounded-xl"
-              placeholder="Enter Email address"
-            />
-           </div>
-         
-            <div>
-            <label className="text-richblack-5 font-inter mb-1 ml-1 text-[13px]">
-                Password
-              </label>
-              <input
-                type="text"
-                className="bg-richblack-800 border-b-[0.1rem] border-white outline-0 h-[38px] w-full px-4 py-6 gap-[12px] rounded-xl"
-                placeholder="Password"
-              />     
-              </div>   
-    </div>
-      </div>
-
-      {/* second for the image section  */}
-      <div className="px-[55px]">
-        <img src={loginimage} alt="" />
-      </div>
-    </div>
-    </div>
-  )
+        </Link>
+      </label>
+      <button
+        type="submit"
+        className="mt-6 rounded-[8px] bg-yellow-50 py-[8px] px-[12px] font-medium text-richblack-900"
+      >
+        Sign In
+      </button>
+    </form>
+  );
 }
 
-export default login
+export default LoginForm;

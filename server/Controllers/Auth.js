@@ -59,7 +59,7 @@ if(checkemail){
 
 
 //    return response 
-res.json({
+return res.json({
 success:true,
 msg:"OTP send successfully..",
 otp
@@ -68,11 +68,11 @@ otp
 
 }catch(err){
     console.log(err);
-    res.json({
+    return res.json({
         success:false,
         msg:"something went wrong in send the otp on email...",
-        data:otp
-    }).status(200);
+        
+    }).status(400);
 }}
 
 
