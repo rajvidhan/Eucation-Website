@@ -81,17 +81,20 @@ otp
 exports.signUp = async (req,res)=>{
     try{
         //data fetch from the body
-        const {firstName,lastName,otp,email,password,confirmPassword,accountType,contactNumber} = req.body;
+        const {firstName,lastName,otp,email,password,confirmpassword,accountType,contactNumber} = req.body;
+
+
     
+
     //VALIDATION
-    if(!firstName || !lastName || !email || !password || !confirmPassword ||!otp){
+    if(!firstName || !lastName || !email || !password || !confirmpassword || !otp){
         return res.json({
             success:false,
-            msg:"All fields are required .."
+            msg:"All fields are required bhai.."
         }).status(403);
     }
     //validate the password 
-    if(password !== confirmPassword){
+    if(password !== confirmpassword){
         return res.json({
             success:false,
             msg:"Your password  should  be same "
@@ -108,7 +111,8 @@ exports.signUp = async (req,res)=>{
     //find the most recent otp
     //yha kuch dekho ek min
     const recentOtp = await OTP.find({email}).sort({createdAt:-1}).limit(1);
-    console.log("recent otp >>>>>> ",recentOtp);
+    console.log("recent otp >>>>>> ",recentOtp[0].otp);
+    
   //validate the otp
   if(recentOtp.length == 0){
 return res.json({

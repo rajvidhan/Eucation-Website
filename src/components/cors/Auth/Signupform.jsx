@@ -23,9 +23,9 @@ const SignupForm = () => {
     lastName: "",
     email: "",
     password: "",
-    confirmPassword: "",
+    confirmpassword: "",
   });
-  const { firstName, lastName, email, password, confirmPassword } = formData;
+  const { firstName, lastName, email, password, confirmpassword } = formData;
 
   // for shoing icon for password
   const [showPassword, setShowPassword] = useState(false);
@@ -43,24 +43,22 @@ const SignupForm = () => {
   const handleOnSubmit = async (e) => {
     e.preventDefault();
 
-    const { firstName, lastName, email, password, confirmPassword } = formData;
+    
 
-    //  const signupData = {
-    //   ...formData,
-    //   accountType,
-    // }
-    //     // Setting signup data to state
-    //   // To be used after otp verification
-    //   dispatch(setSignupData(signupData))
-
-    if (password !== confirmPassword) {
-      toast.error("Password Do Not Match");
-      return;
+    if (password !== confirmpassword) {
+      toast.error("Passwords Do Not Match")
+      return
     }
-    console.log("hello vidhan");
+    const signupData = {
+      ...formData,
+      accountType,
+    }
+        // Setting signup data to state
+      // To be used after otp verification
+      dispatch(setSignupData(signupData))
 
     // Send OTP to user for verification
-    otpsender(email, navigate);
+    dispatch(otpsender(email, navigate));
 
     // Reset
     setFormData({
@@ -68,7 +66,7 @@ const SignupForm = () => {
       lastName: "",
       email: "",
       password: "",
-      confirmPassword: "",
+      confirmpassword: "",
     })
     setAccountType(ACCOUNT_TYPE.STUDENT)
   };
@@ -182,8 +180,8 @@ const SignupForm = () => {
             <input
               required
               type={showConfirmPassword ? "text" : "password"}
-              name="confirmPassword"
-              value={confirmPassword}
+              name="confirmpassword"
+              value={confirmpassword}
               onChange={handleOnChange}
               placeholder="Confirm Password"
               style={{
