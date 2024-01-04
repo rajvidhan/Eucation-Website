@@ -98,7 +98,7 @@ const VerifyEmail = () => {
         </Link>
         <button
           className="flex items-center text-blue-100 gap-x-2"
-          onClick={() => dispatch(otpsender(signupData.email))}
+          onClick={() => dispatch(otpsender(signupData.email,navigate))}
         >
           <RxCountdownTimer />
           Resend it

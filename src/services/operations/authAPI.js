@@ -4,7 +4,10 @@ import {
   resetPasswordToken,
   resetPassword,
   signup,
+  login
 } from "../../utils/Apiroutes";
+import { resetCart } from "../../slices/CartSlice"
+import { setUser } from "../../slices/ProfileSlice"
 import axios from "axios";
 import { setLoading, setToken } from "../../slices/authSlice";
 
@@ -129,6 +132,60 @@ export function signUp(
       toast.error("Signup Failed")
       navigate("/signup");
       toast.dismiss(toastId)
+    }
+    dispatch(setLoading(false))
+    toast.dismiss(toastId)
+  }
+}
+
+
+// for logout 
+export function logout(navigate){
+  return (dispatch)=>{
+    dispatch(setToken(null))
+    dispatch(setUser(null))
+    dispatch(resetCart())
+    localStorage.removeItem("token")
+    localStorage.removeItem("user")
+    toast.success("Logged Out")
+    navigate("/")
+  }
+}
+
+// for login 
+export function Login(email,password,navigate){
+  return async (dispatch)=>{
+    const toastId = toast.loading("Loading...")
+    dispatch(setLoading(true))
+    try{
+
+      const response = await axios.post(login,{
+        email,password
+      });
+
+      if(!response.data.success){
+        throw new Error(response.data.message)
+      }
+
+      toast.success("Login Successful")
+      dispatch(setToken(response.data.token));
+
+
+      // for profile image 
+      const userImage = response.data?.user?.image
+        ? response.data.user.image
+        : `https://api.dicebear.com/5.x/initials/svg?seed=${response.data.user.firstName} ${response.data.user.lastName}`
+
+
+        dispatch(setUser({ ...response.data.user, image: userImage }))
+
+
+        localStorage.setItem("token", JSON.stringify(response.data.token))
+      navigate("/dashboard/my-profile")
+
+    }catch(error){
+      console.log(error);
+      toast.error("Login Failed")
     }
     dispatch(setLoading(false))
     toast.dismiss(toastId)

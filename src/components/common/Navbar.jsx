@@ -4,7 +4,7 @@ import logo from "../../assets/Logo/Logo-Full-Light.png";
 import { Link, matchPath } from "react-router-dom";
 import { NavbarLinks } from "../../data/navbar-links";
 import { useLocation } from "react-router-dom";
-import { CiShoppingCart } from "react-icons/ci";
+import {AiOutlineShoppingCart} from "react-icons/ai"
 import ProfileDropDown from "../cors/Auth/Profiledropdown";
 import { apiconnecter } from "../../services/apiconnector";
 import {categories} from "../../services/Apis"
@@ -130,9 +130,9 @@ const Navbar = () => {
          {
           user && user.accountType != "Instructor"  && (
     <Link to="/dashboard/cart" className="relative">
-    <CiShoppingCart />
+    <AiOutlineShoppingCart className="text-white" />
     {
-      totalItems>0 && (
+      totalItems > 0 && (
         <span className="text-white">
           {totalItems}
         </span>
