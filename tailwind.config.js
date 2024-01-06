@@ -45,6 +45,7 @@ module.exports = {
         Lime:{
           500:"#84cc16",
         },
+
         blue: {
           5: "#EAF5FF",
           25: "#B4DAEC",
@@ -87,6 +88,10 @@ module.exports = {
           800: "#41260B",
           900: "#291100",
           950:"#451a03"
+        },
+        orange:{
+         5:"#FF8C00",
+         10:"#FFC72C"
         },
         pink: {
           5: "#FFF1F1",

@@ -9,14 +9,14 @@ const Stats = [
 
 const StatsComponents = () => {
   return (
-    <section>
-      <div>
-        <div className="flex gap-x-5">
+    <section className="my-[100px]">
+      <div >
+        <div className="flex rounded-2xl gap-x-5 py-[80px] px-[60px] justify-between bg-richblack-700 ">
           {Stats.map((data, index) => {
             return (
               <div key={index}>
-                <h1>{data.count}</h1>
-                <h2>{data.label}</h2>
+                <h1 className="font-bold text-[35px]">{data.count}</h1>
+                <h2 className=" text-[20px] text-richblack-200">{data.label}</h2>
               </div>
             );
           })}

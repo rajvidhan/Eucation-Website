@@ -8,54 +8,67 @@ import foundingStory from "../assets/Images/FoundingStory.png";
 import StatsComponents from "../components/cors/AboutPage/Stats";
 import LearningGrid from "../components/cors/AboutPage/LearningGrid";
 import ContactFormSection from "../components/cors/AboutPage/ContactFormSection";
+import Footer from "../components/common/Footer";
 
 const About = () => {
   return (
-    <div className="mx-auto mt-[100px] text-white w-11/12 max-w-maxContent">
+   <div>
+     <div className="mx-auto mt-[100px] text-white w-11/12 max-w-maxContent">
       {/* 1st section  */}
       <section>
         {/* heading place
          */}
-        <div>
+        <div >
           <header>
-            Driving Innovation in Online Education for a
+            <div className=" flex  text-[40px]  flex-col items-center justify-center">
+              <p className=" mb-[40px]  text-[20px] text-richblack-200">About Us</p>
+            <h1 className="font-bold">Driving Innovation in Online Education for a</h1> 
             <HighlightText text={"Brighter Future"} />
-            <p>
+            <p className=" mt-[5px] w-[80%] items-center justify-center flex flex-col text-[20px] text-richblack-200">
               Studynotion is at the forefront of driving innovation in online
-              education. We're passionate about creating a brighter future by
+              education. We're passionate about creating a <span>brighter future by
               offering cutting-edge courses, leveraging emerging technologies,
-              and nurturing a vibrant learning community.
+              and nurturing a</span>  vibrant learning community.
             </p>
+            </div>
+           
           </header>
-          <div className="flex gap-x-5 flex-row">
-            <img src={BannerImage1} />
-            <img src={BannerImage2} />
-            <img src={BannerImage3} />
+          <div className=" flex gap-x-7 mt-[60px] flex-row">
+            <img className="shadow-xl  shadow-blue-200 " src={BannerImage1} />
+            <img className="shadow-xl  shadow-orange-10 " src={BannerImage2} />
+            <img className="shadow-xl  shadow-brown-400 " src={BannerImage3} />
           </div>
         </div>
       </section>
       {/* section 2
        */}
-      <section>
+      <section className="mt-[100px] mb-[100px] ">
         <div>
           <Quote />
         </div>
       </section>
+
+{/* line  */}
+      <hr className="text-richblack-100 opacity-30 w-full"/>
+
+
       {/* section 3  */}
+
+
       <section>
-        <div className="flex flex-col">
+        <div className="flex flex-col mt-[120px]">
           {/* upper box  */}
-          <div className="flex">
-            <div>
-              <h1>Our Founding Story</h1>
-              <p>
+          <div className="flex mb-[150px]">
+            <div className="w-[50%]">
+              <h1 className="text-[40px] text-pink-300 mb-[20px]">Our Founding Story</h1>
+              <p className="text-[20px] text-richblack-200 mb-[20px]">
                 Our e-learning platform was born out of a shared vision and
                 passion for transforming education. It all began with a group of
                 educators, technologists, and lifelong learners who recognized
                 the need for accessible, flexible, and high-quality learning
                 opportunities in a rapidly evolving digital world.
               </p>
-              <p>
+              <p className="text-[20px] text-richblack-200">
                 As experienced educators ourselves, we witnessed firsthand the
                 limitations and challenges of traditional education systems. We
                 believed that education should not be confined to the walls of a
@@ -65,17 +78,17 @@ const About = () => {
                 potential.
               </p>
             </div>
-            <div>
-              <img className="shadow-2xl shadow-white" src={foundingStory} />
+            <div className="w-[50%] flex items-center justify-center">
+              <img className="shadow-xl w-[500px] h-auto shadow-pink-300" src={foundingStory} />
             </div>
           </div>
           {/* lower box
            */}
-          <div className="flex">
+          <div className="flex justify-between">
             {/* left box  */}
-            <div>
-              <h1>Our Vision</h1>
-              <p>
+            <div className="w-[40%]">
+              <h1 className="mb-[30px] font-bold text-[40px] text-orange-5">Our Vision</h1>
+              <p className="text-[20px] text-richblack-200">
                 With this vision in mind, we set out on a journey to create an
                 e-learning platform that would revolutionize the way people
                 learn. Our team of dedicated experts worked tirelessly to
@@ -86,9 +99,9 @@ const About = () => {
             </div>
             {/* right box
              */}
-            <div>
-              <h1>Our Mission</h1>
-              <p>
+            <div className="w-[40%]">
+              <h1 className="mb-[30px] font-bold text-[40px] text-blue-100">Our Mission</h1>
+              <p className="text-[20px] text-richblack-200">
                 Our mission goes beyond just delivering courses online. We
                 wanted to create a vibrant community of learners, where
                 individuals can connect, collaborate, and learn from one
@@ -111,7 +124,18 @@ const About = () => {
         <LearningGrid />
         <ContactFormSection />
       </section>
+
+<section>
+  <div className="font-bold text-[35px] mb-[40px] text-richblack-200 flex justify-center items-center">
+    Reviews from other learners
+    {/* <ReviewSlider />  */}
+  </div>
+</section>
+      
     </div>
+    {/* footer  */}
+    <Footer />
+   </div>
   );
 };
 
