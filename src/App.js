@@ -9,6 +9,7 @@ import UpdatePassword from './pages/UpdatePassword'
 import VerifyEmail from "./pages/VerifyEmail";
 import About from "./pages/About"
 import ContactForm from "./components/Contactpage/ContactForm";
+import DashBoard from "./pages/DashBoard";
 function App() {
   return (
     <div className="w-screen min-h-screen bg-richblack-900 flex flex-col font-inter">
@@ -22,6 +23,7 @@ function App() {
         <Route path="/verify-email" element={<VerifyEmail />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<ContactForm />} />
+        <Route path="/dashboard/my-profile" element={<Myprofile />} />
       </Routes>
     </div>
   );
