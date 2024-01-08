@@ -51,7 +51,7 @@ const Sidebar = () => {
  
 
       {/* horizontal line  */}
-        <div className='mx-auto mt-6 mb-6 h-[1px] w-10/12'>
+        <div className='mx-auto mt-6 mb-6 text-richblack-200 h-[1px] w-10/12'>
          <hr />
         </div>
 

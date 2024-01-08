@@ -25,9 +25,9 @@ const DashBoard = () => {
   return (
     <div className='relavite flex min-h-[calc(100vh-3.5rem)]'>
         <Sidebar />
-        <div className='h-[calc(100vh-3.5rem)] overflow-auto'>
+        <div className='h-[calc(100vh-3.5rem)]  xl:w-[90%] overflow-auto'>
   
-           <div className='mx-auto w-11/12 max-w-[1000px] py-10'>
+           <div className='ml-[100px] w-11/12 max-w-[1000px] py-10'>
             <Outlet />
            </div>
 

@@ -14,6 +14,7 @@ import MyProfile from "./components/cors/Dashboard/MyProfile"
 import Sidebar from "./components/cors/Dashboard/Sidebar";
 import PrivateRoute from "./components/cors/Auth/PrivateRoute";
 import Error from "./pages/Error"
+import Setting from "./components/cors/Dashboard/Setting";
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
         } >
 
           <Route path="/dashboard/my-profile" element={<MyProfile/>} />
+          <Route path="/dashboard/settings" element={<Setting/>} />
       
         </Route>
         <Route path="*" element={<Error/>} />

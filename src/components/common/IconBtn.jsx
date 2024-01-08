@@ -13,7 +13,7 @@ const IconBtn = (
     type}) => {
   return (
 
-            <button className='text-black font-medium p-[10px] bg-yellow-50 rounded-xl ' disabled={disabled} onClick={onclick} type={type} >
+            <button className='text-black font-medium py-[6px] px-[22px] bg-yellow-50 rounded-xl ' disabled={disabled} onClick={onclick} type={type} >
                 {
                     children ? (
                     <>
