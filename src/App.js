@@ -10,6 +10,12 @@ import VerifyEmail from "./pages/VerifyEmail";
 import About from "./pages/About"
 import ContactForm from "./components/Contactpage/ContactForm";
 import DashBoard from "./pages/DashBoard";
+import MyProfile from "./components/cors/Dashboard/MyProfile"
+import Sidebar from "./components/cors/Dashboard/Sidebar";
+import PrivateRoute from "./components/cors/Auth/PrivateRoute";
+import Error from "./pages/Error"
+
+
 function App() {
   return (
     <div className="w-screen min-h-screen bg-richblack-900 flex flex-col font-inter">
@@ -23,7 +29,21 @@ function App() {
         <Route path="/verify-email" element={<VerifyEmail />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<ContactForm />} />
-        <Route path="/dashboard/my-profile" element={<Myprofile />} />
+       
+
+        <Route element={
+          <PrivateRoute>
+             <DashBoard />
+          </PrivateRoute>
+        } >
+
+          <Route path="/dashboard/my-profile" element={<MyProfile/>} />
+      
+        </Route>
+        <Route path="*" element={<Error/>} />
+        
+
+
       </Routes>
     </div>
   );
