@@ -7,3 +7,4 @@ export const resetPasswordToken = `${host}/api/v1/auth/reset-password-token`;
 export const resetPassword = `${host}/api/v1/auth/reset-password`;
 export const signup = `${host}/api/v1/auth/signup`;
 export const login =`${host}/api/v1/auth/login`;
+export const deleteAccount = `${host}/api/v1/profile/deleteProfile`;

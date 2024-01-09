@@ -15,6 +15,7 @@ import Sidebar from "./components/cors/Dashboard/Sidebar";
 import PrivateRoute from "./components/cors/Auth/PrivateRoute";
 import Error from "./pages/Error"
 import Setting from "./components/cors/Dashboard/Setting";
+import EnrolledCourses from "./components/cors/Dashboard/EnrolledCourses";
 
 
 function App() {
@@ -40,6 +41,8 @@ function App() {
 
           <Route path="/dashboard/my-profile" element={<MyProfile/>} />
           <Route path="/dashboard/settings" element={<Setting/>} />
+          
+          <Route path="/dashboard/enrolled-courses" element={<EnrolledCourses/>} />
       
         </Route>
         <Route path="*" element={<Error/>} />

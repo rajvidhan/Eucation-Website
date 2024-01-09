@@ -12,6 +12,9 @@ module.exports = {
         black: "#000",
         red:{
           600:"#dc2626",
+          500:"#DC143C",
+          400:"#c32148",
+          300:"#cb4154"
         },
         transparent: "#ffffff00",
         richblack: {

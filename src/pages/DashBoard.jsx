@@ -27,7 +27,7 @@ const DashBoard = () => {
         <Sidebar />
         <div className='h-[calc(100vh-3.5rem)]  xl:w-[90%] overflow-auto'>
   
-           <div className='ml-[100px] w-11/12 max-w-[1000px] py-10'>
+           <div className='ml-[100px] w-11/12 max-w-[1000px] '>
             <Outlet />
            </div>
 

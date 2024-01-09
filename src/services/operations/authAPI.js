@@ -4,7 +4,8 @@ import {
   resetPasswordToken,
   resetPassword,
   signup,
-  login
+  login,
+  deleteAccount
 } from "../../utils/Apiroutes";
 import { resetCart } from "../../slices/CartSlice"
 import { setUser } from "../../slices/ProfileSlice"
@@ -188,6 +189,27 @@ export function Login(email,password,navigate){
     }catch(error){
       console.log(error);
       toast.error("Login Failed")
+    }
+    dispatch(setLoading(false))
+    toast.dismiss(toastId)
+  }
+}
+
+//for delete account 
+export function DeleteAccount(id){
+  return async (dispatch)=>{
+    const toastId = toast.loading("Loading...")
+    dispatch(setLoading(true))
+    try{
+
+      const response = await axios.delete(deleteAccount,{
+        id
+      })
+
+
+    }catch(error){
+      console.log(error);
+      toast.error("Can't delete Your Account")
     }
     dispatch(setLoading(false))
     toast.dismiss(toastId)
