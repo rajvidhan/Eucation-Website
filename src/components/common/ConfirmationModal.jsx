@@ -2,7 +2,7 @@ import React from 'react'
 import IconBtn from "./IconBtn"
 const ConfirmationModal = ({modalData}) => {
   return (
-    <div className=' relative  flex items-cnter justify-center font-bold' >
+    <div className='relative  flex items-cnter justify-center font-bold' >
         <div className='flex flex-col'>
             <p className='text-[20px]'>{modalData.text1}</p>
             <p>{modalData.text2}</p>
